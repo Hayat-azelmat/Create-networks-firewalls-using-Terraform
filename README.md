@@ -19,3 +19,7 @@ we will create two VPCs, one for public service and one for the database server.
 
 >>  terraform apply -auto-approve
 
+now we will peer the two networks. 
+This allows communication between machines in those networks using internal IP addresses. 
+This means that databases can be deployed on a private network without external IP addresses, and those databases will only be reachable from the peered network.
+
