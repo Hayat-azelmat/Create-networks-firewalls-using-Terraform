@@ -16,7 +16,7 @@ resource "google_compute_instance" "private-test-server-linux" {
   network_interface {
     network        = google_compute_network.private-vpc.name
     subnetwork     = google_compute_subnetwork.private-subnet_1.name
-    access_config { }  # Comment out this line to remove external IP address
+    # access_config { }  # Comment out this line to remove external IP address
   }
 } 
 
@@ -26,7 +26,8 @@ output "private-test-server-linux" {
 }
 
 output "private-test-server-linux-external-ip" {
-  value = google_compute_instance.private-test-server-linux.network_interface.0.access_config.0.nat_ip
+  value = "NONE"
+  #value = google_compute_instance.private-test-server-linux.network_interface.0.access_config.0.nat_ip
 }
 
 output "private-test-server-linux-internal-ip" {
